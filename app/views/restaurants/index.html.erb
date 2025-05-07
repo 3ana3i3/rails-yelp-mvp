@@ -1,0 +1,14 @@
+<h1>Restaurants</h1>
+<%= link_to 'Add Restaurant', new_restaurant_path %>
+<ol>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <strong>Name:</strong> <%= link_to restaurant.name, restaurant_path(restaurant) %><br>
+      <strong>Address:</strong> <%= restaurant.address %><br>
+      <strong>Phone:</strong> <%= restaurant.phone_number %><br>
+      <strong>Category:</strong> <%= restaurant.category.capitalize %><br>
+      <%= link_to "See details", restaurant_path(restaurant), class: "btn btn-primary"%>
+       <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure you want to delete this restaurant?'},class: "btn btn-danger" %>
+    </li>
+  <% end %>
+</ol>

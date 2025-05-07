@@ -1,0 +1,14 @@
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+  <li class="list-group-item"><%= review.content %>
+  <%= review.content %>
+  <%= link_to "Delete",
+    review_path(review),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %></li>
+  <% end %>
+</ul>
+<%= link_to 'Add Review', new_restaurant_review_path(@restaurant) %>
+
+<%= link_to 'Back to Restaurants', restaurants_path, class: 'btn btn-secondary' %>
